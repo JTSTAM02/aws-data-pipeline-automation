@@ -1,7 +1,25 @@
 # aws-data-pipeline-automation
 End-to-end data pipeline using AWS S3, lambda, Glue, and Redshift to automate ingestion, transformation, and loading of CSV datasets into a cloud data warehouse
 
+# Taxi ETL Pipeline (AWS Lambda + S3 + Athena)
 
+## Current Pipeline
+1. **Source:** CSV files uploaded to `s3://tyler-data-pipeline-2025/raw/`
+2. **Transform:** Lambda function reads latest CSV, adds `fare_per_mile` column
+3. **Load:** Processed CSV uploaded to `s3://tyler-data-pipeline-2025/processed/year=YYYY/month=MM/day=DD/` and Athena partition updated
+4. **Automation:** S3 trigger automatically runs Lambda on new CSV uploads
+5. **Monitoring:** CloudWatch logs track each Lambda run
+
+## Usage
+1. Upload raw CSV to `s3://tyler-data-pipeline-2025/raw/`
+2. Lambda automatically triggers and processes the file
+3. Check S3 and Athena for processed data
+
+## Dependencies
+- pandas
+- boto3
+
+# Future Plans
 
 # AWS Data Pipeline Automation
 
